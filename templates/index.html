@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Crop Yield Predictor</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Crop Yield Now!</h1>
+     <h3> Enter the following values to predict the Crop Yield</h3>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="number" name="District_Id" placeholder="District_Id" required="required" />
+        <input type="number" name="Temperature" placeholder="Temperature" required="required" />
+		    <input type="number" name="Rainfall" placeholder="Rainfall" required="required" />
+        <input type="number" name="Crop_Id" placeholder="Crop_Id" required="required" />
+        <input type="number" name="Area" placeholder="Area" required="required" />
+
+        <button type="submit" class="btn">Predict</button>
+    </form>
+     <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
